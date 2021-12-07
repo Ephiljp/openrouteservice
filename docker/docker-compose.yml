@@ -1,3 +1,4 @@
+
 version: '3'
 services:
   ors-app:
@@ -13,11 +14,11 @@ services:
     volumes:
       - ./graphs:/ors-core/data/graphs
       - ./elevation_cache:/ors-core/data/elevation_cache
-      - ./logs/ors/:/var/log/ors/
-      - ./logs/tomcat/:/usr/local/tomcat/logs
-      - ./conf/app.config.sample:/ors-core/openrouteservice/src/main/resources/app.config
+      - ./logs/ors:/var/log/ors
+      - ./logs/tomcat:/usr/local/tomcat/logs
+      - ./conf:/ors-conf
       - ./data/brazil-latest.osm.pbf:/ors-core/data/osm_file.pbf
     environment:
-      - BUILD_GRAPHS=False  # Forces the container to rebuild the graphs, e.g. when PBF is changed in app.config
-      - "JAVA_OPTS=-Djava.awt.headless=true -server -XX:TargetSurvivorRatio=75 -XX:SurvivorRatio=64 -XX:MaxTenuringThreshold=3 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ParallelGCThreads=8 -Xms4g -Xmx12g"
-      - "CATALINA_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9001 -Dcom.sun.management.jmxremote.rmi.port=9001 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost"
+      - BUILD_GRAPHS=True  # Forces the container to rebuild the graphs, e.g. when PBF is changed in app.config
+      - "JAVA_OPTS=-Djava.awt.headless=true -server -XX:TargetSurvivorRatio=75 -XX:SurvivorRatio=64 -XX:MaxTenuringThreshold=3 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ParallelGCThreads=4 -Xms10g -Xmx10g -XX:MetaspaceSize=512m"
+      - "CATALINA_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9001 -Dcom.sun.management.jmxremote.rmi.port=9001 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=192.168.15.4"
