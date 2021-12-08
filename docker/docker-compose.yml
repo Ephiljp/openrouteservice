@@ -6,7 +6,7 @@ services:
     ports:
       - 8080:8080
       - 9001:9001
-    image: openrouteservice/openrouteservice:latest
+    image: openrouteservice/openrouteservice:v6.1.0
     build:
       context: ../
       args:
