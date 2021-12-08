@@ -27,7 +27,6 @@ WORKDIR /ors-core
 
 COPY --chown=ors:ors openrouteservice /ors-core/openrouteservice
 COPY --chown=ors:ors $OSM_FILE /ors-core/data/osm_file.pbf
-COPY --chown=ors:ors $ORS_CONFIG /ors-core/openrouteservice/src/main/resources/ors-config-sample.json
 COPY --chown=ors:ors ./docker-entrypoint.sh /ors-core/docker-entrypoint.sh
 
 # Install tomcat
