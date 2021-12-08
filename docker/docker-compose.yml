@@ -5,7 +5,8 @@ services:
     container_name: ors-app
     ports:
       - 8080:8080
-    image: openrouteservice/openrouteservice:v6.1.0
+      - 9001:9001
+    image: openrouteservice/openrouteservice:latest
     build:
       context: ../
       args:
