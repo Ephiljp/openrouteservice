@@ -1,6 +1,5 @@
-FROM openjdk:8-jdk
+FROM openjdk:11-jdk
 
-ENV JAVA_OPTS="-Xms512m -Xmx512m"
 ENV MAVEN_OPTS="-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Xmx512m -Xms512m"
 ENV MAVEN_CLI_OPTS="--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 
