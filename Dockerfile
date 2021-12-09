@@ -3,9 +3,9 @@ FROM openjdk:11-jdk
 ENV MAVEN_OPTS="-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true -Xmx512m -Xms512m"
 ENV MAVEN_CLI_OPTS="--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 
-ARG APP_CONFIG=./docker/conf/app.config.sample
+ARG APP_CONFIG=./docker/conf/ors-config.json
 ARG OSM_FILE=./docker/data/brazil-latest.osm.pbf
-ENV BUILD_GRAPHS="False"
+ENV BUILD_GRAPHS="true"
 ARG UID=1000
 ARG TOMCAT_VERSION=8.5.69
 
