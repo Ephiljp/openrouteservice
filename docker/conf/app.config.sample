@@ -42,7 +42,8 @@
         "profiles": {
           "active": [
             "car",
-            "bike-regular"
+            "bike-regular",
+            "walking"
           ],
           "default_params": {
             "encoder_flags_size": 8,
