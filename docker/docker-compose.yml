@@ -10,7 +10,7 @@ services:
     build:
       context: ../
       args:
-        APP_CONFIG: ./docker/conf/app.config.sample
+        APP_CONFIG: ./docker/conf/ors-config.json
         OSM_FILE: ./docker/data/brazil-latest.osm.pbf
     volumes:
       - ./graphs:/ors-core/data/graphs
